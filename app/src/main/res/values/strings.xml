@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">npohl_a2</string>
+    <string name="play_button_text">Play!</string>
+    <string name="options_button_text">Options</string>
+    <string name="quit_button_text">Quit</string>
+    <string name="game_text">Tic-Tac-Toe</string>
+    <string name="options_text">Options Menu</string>
+    <string name="clear_score_button">Clear Score</string>
+    <string name="two_player_option">Two Players?</string>
+    <string name="x_first_option">X Goes First?</string>
 </resources>
