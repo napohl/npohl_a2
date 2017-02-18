@@ -7,12 +7,12 @@ package com.csci448.npohl.npohl_a2;
 public class Options {
 
     private boolean mTwoPlayers;
-    private boolean mXGoesFirst;
+    private boolean mEmpireGoesFirst;
     //that is all the options for now
 
     public Options() {
         mTwoPlayers = false;
-        mXGoesFirst = false;
+        mEmpireGoesFirst = false;
     }
 
     public boolean isTwoPlayers() {
@@ -23,11 +23,11 @@ public class Options {
         mTwoPlayers = twoPlayers;
     }
 
-    public boolean isXGoesFirst() {
-        return mXGoesFirst;
+    public boolean isEmpireGoesFirst() {
+        return mEmpireGoesFirst;
     }
 
-    public void setXGoesFirst(boolean XGoesFirst) {
-        mXGoesFirst = XGoesFirst;
+    public void setEmpireoesFirst(boolean EmpireGoesFirst) {
+        mEmpireGoesFirst = EmpireGoesFirst;
     }
 }

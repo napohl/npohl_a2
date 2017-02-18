@@ -23,7 +23,7 @@ public class GameFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_game, container, false);
-        mTextTitle = (TextView) v.findViewById(R.id.game_title);
+        //mTextTitle = (TextView) v.findViewById(R.id.game_title);
         return v;
     }
 }

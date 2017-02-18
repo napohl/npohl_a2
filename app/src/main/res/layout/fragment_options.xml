@@ -14,8 +14,8 @@
         android:layout_marginRight="16dp"/>
 
     <CheckBox
-        android:id="@+id/x_first_checkbox"
-        android:text="@string/x_first_option"
+        android:id="@+id/empire_first_checkbox"
+        android:text="@string/empire_first_option"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -24,6 +24,9 @@
     <Button
         android:id ="@+id/clear_score_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:layout_gravity="center"
+        android:text="@string/clear_score_button"/>
 
 </LinearLayout>

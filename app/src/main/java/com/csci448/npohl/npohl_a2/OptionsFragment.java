@@ -37,7 +37,7 @@ public class OptionsFragment extends Fragment {
             }
         });
 
-        mXFirst = (CheckBox) v.findViewById(R.id.x_first_checkbox);
+        mXFirst = (CheckBox) v.findViewById(R.id.empire_first_checkbox);
         mXFirst.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

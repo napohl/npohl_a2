@@ -3,12 +3,129 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+
+        <TextView
+            android:id="@+id/empire_wins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/empire_win_count"/>
+
+        <TextView
+            android:id="@+id/stormcloak_wins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stormcloak_win_count"/>
+
+        <TextView
+            android:id="@+id/tie_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tie_count"/>
+
+    </LinearLayout>
 
     <TextView
+        android:id="@+id/end_game_dialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/game_text"
-        android:id="@+id/game_title"/>
+        android:text="TODO: Change this text to show end of game text"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/game_button_1_1"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
+
+            <Button
+                android:id="@+id/game_button_1_2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
+
+            <Button
+                android:id="@+id/game_button_1_3"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/game_button_2_1"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
+
+            <Button
+                android:id="@+id/game_button_2_2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
+
+            <Button
+                android:id="@+id/game_button_2_3"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/game_button_3_1"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
+
+            <Button
+                android:id="@+id/game_button_3_2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
+
+            <Button
+                android:id="@+id/game_button_3_3"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_new_game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_game_text"/>
+
+    <Button
+        android:id="@+id/button_go_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back_button_text"/>
+
+
 
 </LinearLayout>
