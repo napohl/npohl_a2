@@ -13,5 +13,9 @@
     <string name="tie_count">Draws:</string>
     <string name="new_game_text">New Game</string>
     <string name="back_button_text">Go Back</string>
+    <string name="empire_win_dialog">The Empire has won!</string>
+    <string name="stormcloak_win_dialog">The Stormcloaks have won!</string>
+    <string name="tie_dialog">The game is a draw.</string>
+    <string name="active_game_dialog">The war is ongoing.</string>
 
 </resources>

@@ -9,14 +9,18 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
+import java.util.UUID;
+
+import static android.view.ViewConfiguration.get;
+
 /**
  * Created by Nate on 2/14/2017.
  */
 
 public class OptionsFragment extends Fragment {
 
-    private CheckBox mTwoPlayers;
-    private CheckBox mXFirst;
+    private CheckBox mTwoPlayerBox;
+    private CheckBox mEmpireBox;
     private Button mClearScore;
 
     private Options mOptions;
@@ -24,24 +28,28 @@ public class OptionsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        UUID optionId = (UUID) getActivity().getIntent().getSerializableExtra(OptionsActivity.OPTION_OBJECT);
+        mOptions = Options.get(getActivity());
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_options, container, false);
-        mTwoPlayers = (CheckBox) v.findViewById(R.id.two_player_checkbox);
-        mTwoPlayers.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        mTwoPlayerBox = (CheckBox) v.findViewById(R.id.two_player_checkbox);
+        mTwoPlayerBox.setChecked(mOptions.isTwoPlayers() == true);
+        mTwoPlayerBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                //TODO: change value of option
+                mOptions.setTwoPlayers(isChecked);
             }
         });
 
-        mXFirst = (CheckBox) v.findViewById(R.id.empire_first_checkbox);
-        mXFirst.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        mEmpireBox = (CheckBox) v.findViewById(R.id.empire_first_checkbox);
+        mEmpireBox.setChecked(mOptions.isEmpireGoesFirst() == true);
+        mEmpireBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                //TODO: change value of option
+                mOptions.setEmpireoesFirst(isChecked);
             }
         });
 

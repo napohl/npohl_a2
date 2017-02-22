@@ -20,4 +20,5 @@ public class WelcomeActivity extends FragmentActivity {
             fm.beginTransaction().add(R.id.activity_fragment, fragment).commit();
         }
     }
+
 }

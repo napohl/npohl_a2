@@ -1,15 +1,27 @@
 package com.csci448.npohl.npohl_a2;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+
+import java.util.UUID;
 
 /**
  * Created by Nate on 2/14/2017.
  */
 
 public class OptionsActivity extends FragmentActivity {
+
+    public static final String OPTION_OBJECT = "com.csci448.npohl_a2.options";
+
+    public static Intent newIntent(Context packageContext, UUID optionId) {
+        Intent intent = new Intent(packageContext, OptionsActivity.class);
+        intent.putExtra(OPTION_OBJECT, optionId);
+        return intent;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

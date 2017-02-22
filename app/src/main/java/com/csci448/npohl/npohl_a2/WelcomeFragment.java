@@ -14,13 +14,18 @@ import android.widget.Button;
 
 public class WelcomeFragment extends Fragment {
 
+    //private static final String SAVED_SETTINGS = "options";
+
     private Button mPlayButton;
     private Button mOptionsButton;
     private Button mQuitButton;
 
+    private Options mOption;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mOption = Options.get(getActivity());
     }
 
     @Override
@@ -31,7 +36,7 @@ public class WelcomeFragment extends Fragment {
         mPlayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), GameActivity.class);
+                Intent intent = GameActivity.newIntent(getActivity(), mOption.getId());
                 startActivity(intent);
             }
         });
@@ -40,7 +45,7 @@ public class WelcomeFragment extends Fragment {
         mOptionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), OptionsActivity.class);
+                Intent intent = OptionsActivity.newIntent(getActivity(), mOption.getId());
                 startActivity(intent);
             }
         });
@@ -55,5 +60,12 @@ public class WelcomeFragment extends Fragment {
         return v;
     }
 
+    /*
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable(SAVED_SETTINGS, mOption);
+    }
+    */
 
 }
