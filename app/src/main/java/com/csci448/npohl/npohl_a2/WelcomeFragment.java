@@ -14,18 +14,18 @@ import android.widget.Button;
 
 public class WelcomeFragment extends Fragment {
 
-    //private static final String SAVED_SETTINGS = "options";
-
     private Button mPlayButton;
     private Button mOptionsButton;
     private Button mQuitButton;
 
     private Options mOption;
+    private Score mScore;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mOption = Options.get(getActivity());
+        mScore = Score.get(getActivity());
     }
 
     @Override
@@ -36,7 +36,7 @@ public class WelcomeFragment extends Fragment {
         mPlayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = GameActivity.newIntent(getActivity(), mOption.getId());
+                Intent intent = GameActivity.newIntent(getActivity());
                 startActivity(intent);
             }
         });
@@ -45,7 +45,7 @@ public class WelcomeFragment extends Fragment {
         mOptionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = OptionsActivity.newIntent(getActivity(), mOption.getId());
+                Intent intent = OptionsActivity.newIntent(getActivity());
                 startActivity(intent);
             }
         });

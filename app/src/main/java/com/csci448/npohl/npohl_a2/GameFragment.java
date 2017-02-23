@@ -1,15 +1,13 @@
 package com.csci448.npohl.npohl_a2;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
-
-import java.util.UUID;
 
 /**
  * Created by Nate on 2/14/2017.
@@ -22,33 +20,31 @@ public class GameFragment extends Fragment {
     private TextView mStormcloakText;
     private TextView mDrawText;
 
-    private Button mTopLeft;
-    private Button mTopMiddle;
-    private Button mTopRight;
-    private Button mCenterLeft;
-    private Button mCenterMiddle;
-    private Button mCenterRight;
-    private Button mBottomLeft;
-    private Button mBottomMiddle;
-    private Button mBottomRight;
+    private ImageButton mTopLeft;
+    private ImageButton mTopMiddle;
+    private ImageButton mTopRight;
+    private ImageButton mCenterLeft;
+    private ImageButton mCenterMiddle;
+    private ImageButton mCenterRight;
+    private ImageButton mBottomLeft;
+    private ImageButton mBottomMiddle;
+    private ImageButton mBottomRight;
 
     private Button mNewGame;
     private Button mGoBack;
 
     private Options mOptions;
+    private Score mScore;
     private Game mGame;
 
-    private int mEmpireWins;
-    private int mStormcloakWins;
-    private int mDraws;
     private int mTurns;
     private boolean mActiveGame;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        UUID optionId = (UUID) getActivity().getIntent().getSerializableExtra(OptionsActivity.OPTION_OBJECT);
         mOptions = Options.get(getActivity());
+        mScore = Score.get(getActivity());
     }
 
     @Override
@@ -56,19 +52,23 @@ public class GameFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_game, container, false);
 
         mWinText = (TextView) v.findViewById(R.id.end_game_dialog);
+        mEmpireText = (TextView) v.findViewById(R.id.empire_wins);
+        mStormcloakText = (TextView) v.findViewById(R.id.stormcloak_wins);
+        mDrawText = (TextView) v.findViewById(R.id.tie_text);
+        updateScores();
 
         //start a new game whenever we come back to this activity
         setupGame();
 
-        mTopLeft = (Button) v.findViewById(R.id.game_button_1_1);
+        mTopLeft = (ImageButton) v.findViewById(R.id.game_button_1_1);
         mTopLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 handleClick(mTopLeft, 0, 0);
-            }
+               }
         });
 
-        mTopMiddle = (Button) v.findViewById(R.id.game_button_1_2);
+        mTopMiddle = (ImageButton) v.findViewById(R.id.game_button_1_2);
         mTopMiddle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,7 +76,7 @@ public class GameFragment extends Fragment {
             }
         });
 
-        mTopRight= (Button) v.findViewById(R.id.game_button_1_3);
+        mTopRight= (ImageButton) v.findViewById(R.id.game_button_1_3);
         mTopRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,7 +84,7 @@ public class GameFragment extends Fragment {
             }
         });
 
-        mCenterLeft = (Button) v.findViewById(R.id.game_button_2_1);
+        mCenterLeft = (ImageButton) v.findViewById(R.id.game_button_2_1);
         mCenterLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,7 +92,7 @@ public class GameFragment extends Fragment {
             }
         });
 
-        mCenterMiddle = (Button) v.findViewById(R.id.game_button_2_2);
+        mCenterMiddle = (ImageButton) v.findViewById(R.id.game_button_2_2);
         mCenterMiddle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,7 +100,7 @@ public class GameFragment extends Fragment {
             }
         });
 
-        mCenterRight = (Button) v.findViewById(R.id.game_button_2_3);
+        mCenterRight = (ImageButton) v.findViewById(R.id.game_button_2_3);
         mCenterRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,7 +108,7 @@ public class GameFragment extends Fragment {
             }
         });
 
-        mBottomLeft = (Button) v.findViewById(R.id.game_button_3_1);
+        mBottomLeft = (ImageButton) v.findViewById(R.id.game_button_3_1);
         mBottomLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,7 +116,7 @@ public class GameFragment extends Fragment {
             }
         });
 
-        mBottomMiddle = (Button) v.findViewById(R.id.game_button_3_2);
+        mBottomMiddle = (ImageButton) v.findViewById(R.id.game_button_3_2);
         mBottomMiddle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,7 +124,7 @@ public class GameFragment extends Fragment {
             }
         });
 
-        mBottomRight = (Button) v.findViewById(R.id.game_button_3_3);
+        mBottomRight = (ImageButton) v.findViewById(R.id.game_button_3_3);
         mBottomRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -151,6 +151,15 @@ public class GameFragment extends Fragment {
         return v;
     }
 
+    private void updateScores() {
+        String empire = getString(R.string.empire_win_count, mScore.getEmpireWins());
+        String stormcloak = getString(R.string.stormcloak_win_count, mScore.getStormcloakWins());
+        String ties = getString(R.string.tie_count, mScore.getTies());
+        mEmpireText.setText(empire);
+        mStormcloakText.setText(stormcloak);
+        mDrawText.setText(ties);
+    }
+
     private void setupGame() {
         mGame = new Game();
         if (mOptions.isEmpireGoesFirst()) {
@@ -162,17 +171,17 @@ public class GameFragment extends Fragment {
     }
 
     private void clearButtons() {
-        mTopLeft.setText("");
-        mTopMiddle.setText("");
-        mTopRight.setText("");
+        mTopLeft.setImageResource(android.R.color.transparent);
+        mTopMiddle.setImageResource(android.R.color.transparent);
+        mTopRight.setImageResource(android.R.color.transparent);
 
-        mCenterLeft.setText("");
-        mCenterMiddle.setText("");
-        mCenterRight.setText("");
+        mCenterLeft.setImageResource(android.R.color.transparent);
+        mCenterMiddle.setImageResource(android.R.color.transparent);
+        mCenterRight.setImageResource(android.R.color.transparent);
 
-        mBottomLeft.setText("");
-        mBottomMiddle.setText("");
-        mBottomRight.setText("");
+        mBottomLeft.setImageResource(android.R.color.transparent);
+        mBottomMiddle.setImageResource(android.R.color.transparent);
+        mBottomRight.setImageResource(android.R.color.transparent);
     }
 
     private void updateGame(int row, int col) {
@@ -207,28 +216,59 @@ public class GameFragment extends Fragment {
         }
     }
 
-    private void handleClick(Button b, int row, int col) {
+    private void handleClick(ImageButton b, int row, int col) {
         boolean empireTurn = mGame.isEmpireTurn();
-        String buttonText = b.getText().toString();
-        if (buttonText != "x" && buttonText != "o" && mActiveGame) {
+        char[] array = new char[3];
+        switch (row) {
+            case 0: array = mGame.getTopRow();
+                break;
+            case 1: array = mGame.getMidRow();
+                break;
+            case 2: array = mGame.getLowRow();
+                break;
+            default: array[0] = 'x';
+                array[1] = 'x';
+                array[2] = 'x';
+                break;
+        }
+        char test = array[col];
+        if (test != 'x' && test != 'o' && mActiveGame) {
             updateGame(row, col);
             if (empireTurn) {
-                b.setText("x");
-            } else {
-                b.setText("o");
+                b.setImageResource(R.drawable.imperial);
+            }
+            else {
+                b.setImageResource(R.drawable.stormcloak);
             }
             char win = mGame.checkWin();
             if (win == 'x') {
                 mWinText.setText(R.string.empire_win_dialog);
+                mScore.incrementEmpireWins();
                 mActiveGame = false;
+                updateScores();
             } else if (win == 'o') {
                 mWinText.setText(R.string.stormcloak_win_dialog);
+                mScore.incrementStormcloakWins();
                 mActiveGame = false;
+                updateScores();
             } else if (++mTurns == 9) {
                 mWinText.setText(R.string.tie_dialog);
+                mScore.incrementTies();
                 mActiveGame = false;
+                updateScores();
             }
             mGame.setEmpireTurn(!empireTurn);
         }
+        /*
+        if (mGame.isEmpireTurn()) {
+                    //TODO: add empire image
+                    mTopLeft.setImageResource(R.drawable.imperial);
+                }
+                else {
+                    //TODO: add stormcloak image
+                    mTopLeft.setImageResource(R.drawable.stormcloak);
+                }
+
+         */
     }
 }

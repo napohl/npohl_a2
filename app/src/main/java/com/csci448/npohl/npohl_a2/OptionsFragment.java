@@ -9,10 +9,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
-import java.util.UUID;
-
-import static android.view.ViewConfiguration.get;
-
 /**
  * Created by Nate on 2/14/2017.
  */
@@ -24,12 +20,13 @@ public class OptionsFragment extends Fragment {
     private Button mClearScore;
 
     private Options mOptions;
+    private Score mScore;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        UUID optionId = (UUID) getActivity().getIntent().getSerializableExtra(OptionsActivity.OPTION_OBJECT);
         mOptions = Options.get(getActivity());
+        mScore = Score.get(getActivity());
     }
 
     @Override
@@ -57,7 +54,9 @@ public class OptionsFragment extends Fragment {
         mClearScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: pass in score as an extra and set to zero here
+                mScore.resetEmpireWins();
+                mScore.resetStormcloakWins();
+                mScore.resetTies();
             }
         });
         return v;

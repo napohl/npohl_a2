@@ -21,11 +21,15 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"/>
 
+    <Space
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+
     <Button
         android:id ="@+id/clear_score_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="500dp"
         android:layout_gravity="center"
         android:text="@string/clear_score_button"/>
 

@@ -8,9 +8,9 @@
     <string name="clear_score_button">Clear Score</string>
     <string name="two_player_option">Two Players?</string>
     <string name="empire_first_option">Empire Goes First?</string>
-    <string name="empire_win_count">Empire Wins:</string>
-    <string name="stormcloak_win_count">Stormcloak Wins:</string>
-    <string name="tie_count">Draws:</string>
+    <string name="empire_win_count">Empire Wins: %1$d</string>
+    <string name="stormcloak_win_count">Stormcloak Wins: %1$d</string>
+    <string name="tie_count">Draws: %1$d</string>
     <string name="new_game_text">New Game</string>
     <string name="back_button_text">Go Back</string>
     <string name="empire_win_dialog">The Empire has won!</string>

@@ -53,18 +53,24 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Button
+            <ImageButton
                 android:id="@+id/game_button_1_1"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
                 android:layout_width="80dp"
                 android:layout_height="80dp"/>
 
-            <Button
+            <ImageButton
                 android:id="@+id/game_button_1_2"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
                 android:layout_width="80dp"
                 android:layout_height="80dp"/>
 
-            <Button
+            <ImageButton
                 android:id="@+id/game_button_1_3"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
                 android:layout_width="80dp"
                 android:layout_height="80dp"/>
 
@@ -75,18 +81,24 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Button
+            <ImageButton
                 android:id="@+id/game_button_2_1"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
                 android:layout_width="80dp"
                 android:layout_height="80dp"/>
 
-            <Button
+            <ImageButton
                 android:id="@+id/game_button_2_2"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
                 android:layout_width="80dp"
                 android:layout_height="80dp"/>
 
-            <Button
+            <ImageButton
                 android:id="@+id/game_button_2_3"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
                 android:layout_width="80dp"
                 android:layout_height="80dp"/>
 
@@ -97,18 +109,24 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Button
+            <ImageButton
                 android:id="@+id/game_button_3_1"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
                 android:layout_width="80dp"
                 android:layout_height="80dp"/>
 
-            <Button
+            <ImageButton
                 android:id="@+id/game_button_3_2"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
                 android:layout_width="80dp"
                 android:layout_height="80dp"/>
 
-            <Button
+            <ImageButton
                 android:id="@+id/game_button_3_3"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
                 android:layout_width="80dp"
                 android:layout_height="80dp"/>
 
