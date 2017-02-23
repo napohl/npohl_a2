@@ -6,6 +6,8 @@ package com.csci448.npohl.npohl_a2;
 
 public class Game {
 
+    //private static Game sGame;
+
     /**
      * These three arrays will be used as the game board. When initialized, they will be size 3,
      * with the char being set to 'e' for empty. When a player clicks a button, it will be set to
@@ -14,7 +16,23 @@ public class Game {
     private char[] topRow;
     private char[] midRow;
     private char[] lowRow;
-    private boolean empireTurn;
+
+    private boolean imperialTurn;
+
+    /*
+    public static Game get() {
+        if (sGame == null) {
+            sGame = new Game();
+        }
+        return sGame;
+    }
+    */
+
+    /*
+    public static void resetGame() {
+        sGame = new Game();
+    }
+    */
 
     public Game() {
         topRow = new char[3];
@@ -25,7 +43,7 @@ public class Game {
             midRow[i] = 'e';
             lowRow[i] = 'e';
         }
-        empireTurn = false;
+        imperialTurn = false;
     }
 
     /**
@@ -114,11 +132,11 @@ public class Game {
         this.lowRow = lowRow;
     }
 
-    public boolean isEmpireTurn() {
-        return empireTurn;
+    public boolean isImperialTurn() {
+        return imperialTurn;
     }
 
-    public void setEmpireTurn(boolean empireTurn) {
-        this.empireTurn = empireTurn;
+    public void setImperialTurn(boolean imperialTurn) {
+        this.imperialTurn = imperialTurn;
     }
 }

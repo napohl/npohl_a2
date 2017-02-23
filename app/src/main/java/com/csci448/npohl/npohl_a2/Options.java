@@ -11,7 +11,7 @@ public class Options {
     private static Options sOptions;
 
     private boolean mTwoPlayers;
-    private boolean mEmpireGoesFirst;
+    private boolean mImperialsGoFirst;
 
     public static Options get(Context context) {
         if (sOptions == null) {
@@ -22,7 +22,7 @@ public class Options {
 
     private Options(Context context) {
         mTwoPlayers = false;
-        mEmpireGoesFirst = false;
+        mImperialsGoFirst = false;
     }
 
     public boolean isTwoPlayers() {
@@ -33,11 +33,11 @@ public class Options {
         mTwoPlayers = twoPlayers;
     }
 
-    public boolean isEmpireGoesFirst() {
-        return mEmpireGoesFirst;
+    public boolean isImperialsGoFirst() {
+        return mImperialsGoFirst;
     }
 
-    public void setEmpireoesFirst(boolean EmpireGoesFirst) {
-        mEmpireGoesFirst = EmpireGoesFirst;
+    public void setImperialsGoFirst(boolean imperialsGoFirst) {
+        mImperialsGoFirst = imperialsGoFirst;
     }
 }

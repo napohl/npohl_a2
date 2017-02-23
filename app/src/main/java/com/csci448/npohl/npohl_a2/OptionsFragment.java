@@ -42,11 +42,11 @@ public class OptionsFragment extends Fragment {
         });
 
         mEmpireBox = (CheckBox) v.findViewById(R.id.empire_first_checkbox);
-        mEmpireBox.setChecked(mOptions.isEmpireGoesFirst() == true);
+        mEmpireBox.setChecked(mOptions.isImperialsGoFirst() == true);
         mEmpireBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                mOptions.setEmpireoesFirst(isChecked);
+                mOptions.setImperialsGoFirst(isChecked);
             }
         });
 

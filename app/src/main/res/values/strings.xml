@@ -7,13 +7,13 @@
     <string name="options_text">Options Menu</string>
     <string name="clear_score_button">Clear Score</string>
     <string name="two_player_option">Two Players?</string>
-    <string name="empire_first_option">Empire Goes First?</string>
-    <string name="empire_win_count">Empire Wins: %1$d</string>
+    <string name="empire_first_option">Imperials Go First?</string>
+    <string name="imperial_win_count">Imperial Wins: %1$d</string>
     <string name="stormcloak_win_count">Stormcloak Wins: %1$d</string>
     <string name="tie_count">Draws: %1$d</string>
     <string name="new_game_text">New Game</string>
     <string name="back_button_text">Go Back</string>
-    <string name="empire_win_dialog">The Empire has won!</string>
+    <string name="imperial_win_dialog">The Imperials have won!</string>
     <string name="stormcloak_win_dialog">The Stormcloaks have won!</string>
     <string name="tie_dialog">The game is a draw.</string>
     <string name="active_game_dialog">The war is ongoing.</string>
