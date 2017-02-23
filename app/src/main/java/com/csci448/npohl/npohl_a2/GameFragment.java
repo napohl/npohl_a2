@@ -174,6 +174,10 @@ public class GameFragment extends Fragment {
         mDrawText.setText(ties);
     }
 
+    /**
+     * Called to setup a new game. This creates a new game, and sets up all variables needed to
+     * ensure that the game can be played without errors.
+     */
     private void setupGame() {
         mGame = new Game();
         if (mOptions.isImperialsGoFirst()) {
@@ -188,6 +192,9 @@ public class GameFragment extends Fragment {
         }
     }
 
+    /**
+     * Removes all the pictures from the buttons, for when the game is reset.
+     */
     private void clearButtons() {
         mTopLeft.setImageResource(android.R.color.transparent);
         mTopMiddle.setImageResource(android.R.color.transparent);
@@ -202,6 +209,12 @@ public class GameFragment extends Fragment {
         mBottomRight.setImageResource(android.R.color.transparent);
     }
 
+    /**
+     * updates the games arrays to keep track of where an 'x' or 'o' has been placed
+     *
+     * @param row the row to be updated
+     * @param col the column to be updated
+     */
     private void updateGame(int row, int col) {
 
         char[] edit = new char[3];
@@ -234,6 +247,12 @@ public class GameFragment extends Fragment {
         }
     }
 
+    /**
+     * Called whenever a game button is clicked. Handles updating the game, updating the view, and checking for a winner.
+     *
+     * @param row row of the button that was clicked
+     * @param col column of the button that was clicked
+     */
     private void handleClick(int row, int col) {
         boolean empireTurn = mGame.isImperialTurn();
         char[] array = new char[3];
@@ -281,6 +300,13 @@ public class GameFragment extends Fragment {
         }
     }
 
+    /**
+     * updates the proper button with the proper image
+     *
+     * @param row row of button to be updated
+     * @param col column of button to be updated
+     * @param imperialTurn is it the imperial's or the stormcloak's turn?
+     */
     private void updateButton(int row, int col, boolean imperialTurn) {
         int dialogId;
         if (imperialTurn) {
@@ -324,6 +350,9 @@ public class GameFragment extends Fragment {
         }
     }
 
+    /**
+     * if there is a computer player, this will be called to select a random tile for the computer's turn
+     */
     private void computerMove() {
         Random rand = new Random();
         int row;
@@ -353,10 +382,11 @@ public class GameFragment extends Fragment {
             }
         }
     }
-
+    /*
     private void updateScreen() {
         char[] topRow = mGame.getTopRow();
         char[] midRow = mGame.getMidRow();
         char[] lowRow = mGame.getLowRow();
     }
+    */
 }

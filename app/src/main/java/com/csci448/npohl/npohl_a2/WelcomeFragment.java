@@ -60,12 +60,4 @@ public class WelcomeFragment extends Fragment {
         return v;
     }
 
-    /*
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putSerializable(SAVED_SETTINGS, mOption);
-    }
-    */
-
 }

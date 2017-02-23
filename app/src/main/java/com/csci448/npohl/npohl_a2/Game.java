@@ -90,6 +90,12 @@ public class Game {
         }
     }
 
+    /**
+     * Called at the end of every turn, checks to see if someone won the game
+     *
+     * @return returns 'e' for empty if no one has won. Returns 'x' or 'o' if one of those players
+     *      won
+     */
     public char checkWin() {
         char whoWon;
         whoWon = checkRow(topRow);

@@ -12,6 +12,9 @@ import android.content.Context;
  */
 public class Score {
 
+    /**
+     * sScore is a static object so that it can be saved across activities
+     */
     private static Score sScore;
 
     private int mEmpireWins;

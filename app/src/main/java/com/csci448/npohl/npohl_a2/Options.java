@@ -8,6 +8,9 @@ import android.content.Context;
 
 public class Options {
 
+    /**
+     * options is a static variable so that it can be used between activities
+     */
     private static Options sOptions;
 
     private boolean mTwoPlayers;
